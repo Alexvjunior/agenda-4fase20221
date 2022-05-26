@@ -1,0 +1,44 @@
+{% include 'base.html' %}
+
+
+
+{% block conteudo %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Email</th>
+      <th scope="col">telefone</th>
+      <th scope="col">nome</th>
+      <th scope="col">data de Criação</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contato in  contatos %}
+    <tr>
+      <th scope="row">{{contato.id}}</th>
+      <td><a href="{% url 'ver_contato' contato.id %}">{{contato.email}}</a></td>
+      <td>{{contato.telefone}}</td>
+      <td>{{contato.name}}</td>
+      <td>{{contato.data_criacao}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock conteudo %}
+
+
+<div class="container">
+    <form method="POST" action="{% url 'index'%}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table">
+            {{form}}
+
+            <tr>
+                <td>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

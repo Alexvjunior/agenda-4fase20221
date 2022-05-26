@@ -1,0 +1,17 @@
+{% include 'base.html' %}
+
+
+{% block conteudo %}
+<h1>{{contato.name}}</h1>
+
+<dl>
+<dt>ID</dt>
+<dt>{{contato.id}}</dt>
+<dt>Telefone</dt>
+<dt>{{contato.telefone}}</dt>
+<dt>Email</dt>
+<dt>{{contato.email}}</dt>
+<dt>Data de criação</dt>
+<dt>{{contato.data_criacao|date:'d/m/Y'}}</dt>
+</dl>
+{% endblock conteudo %}
